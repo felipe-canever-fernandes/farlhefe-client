@@ -1,17 +1,20 @@
 static auto const led_pin = uint8_t(33);
+static auto const light_sensor_pin = uint8_t(32);
 
 void setup()
 {
 	pinMode(led_pin, OUTPUT);
+	pinMode(light_sensor_pin, INPUT);
+
 	Serial.begin(115200);
 }
 
 void loop()
 {
-	static auto led_state = static_cast<bool>(digitalRead(led_pin));
+	auto const light_sensor_read =
+			static_cast<bool>(digitalRead(light_sensor_pin));
+	
+	auto const is_pet_near = !light_sensor_read;
 
-	led_state = !led_state;
-	digitalWrite(led_pin, led_state);
-
-	delay(1000);
+	digitalWrite(led_pin, is_pet_near);
 }
