@@ -11,10 +11,7 @@ void setup()
 
 void loop()
 {
-	auto const lightSensorReading =
-			static_cast<bool>(digitalRead(lightSensorPin));
-	
-	auto const isPetNear = !lightSensorReading;
-
+	auto const lightSensorReading = digitalRead(lightSensorPin);
+	auto const isPetNear = lightSensorReading == LOW;
 	digitalWrite(ledPin, isPetNear);
 }
