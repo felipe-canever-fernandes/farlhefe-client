@@ -20,7 +20,7 @@ void loop()
 
 	if (petIsNear == petWasNear)
 		return;
-
+	
 	digitalWrite(ledPin, petIsNear ? HIGH : LOW);
 
 	if (!petIsNear)
@@ -35,5 +35,6 @@ void loop()
 auto readPetIsNear() -> bool
 {
 	auto const lightSensorReading = digitalRead(lightSensorPin);
+	delay(50);
 	return lightSensorReading == LOW;
 }
