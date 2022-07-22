@@ -1,13 +1,7 @@
 #include "petSensor.hpp"
-
-using FoodWeight = uint16_t;
-// Maximum food weight in g.
-static auto const maximumFoodWeight = FoodWeight(1000);
+#include "foodScale.hpp"
 
 static auto const ledPin = uint8_t(33);
-static auto const potentiometerPin = uint8_t(34);
-
-auto readFoodWeight() -> FoodWeight;
 
 void setup()
 {
@@ -29,14 +23,7 @@ void loop()
 	digitalWrite(ledPin, petIsNear ? HIGH : LOW);
 
 	if (!petIsNear)
-		Serial.printf("Remaining food: %i g\n", readFoodWeight());
+		Serial.printf("Remaining food: %i g\n", foodScale::readWeight());
 
 	petWasNear = petIsNear;
-}
-
-auto readFoodWeight() -> FoodWeight
-{
-	static auto const factor = maximumFoodWeight / 4095.0f;
-	auto const potentiometerReading = analogRead(potentiometerPin);
-	return static_cast<FoodWeight>(potentiometerReading * factor);
 }
