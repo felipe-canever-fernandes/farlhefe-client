@@ -4,9 +4,9 @@
 
 namespace meal
 {
-	auto Meal::print(HardwareSerial& serial) const -> size_t
+	size_t Meal::print(HardwareSerial& serial) const
 	{
-		auto const durationInSeconds = duration / 1000;
+		int const durationInSeconds{duration / 1000};
 
 		return serial.printf
 		(

@@ -11,6 +11,6 @@ namespace meal
 		foodScale::Weight quantity;
 		int duration;
 
-		auto print(HardwareSerial& serial) const -> size_t;
+		size_t print(HardwareSerial& serial) const;
 	};
 }

@@ -2,11 +2,11 @@
 
 namespace petSensor
 {
-	uint8_t const pin = 32;
+	uint8_t const pin{32};
 
-	auto readPetIsNear() -> bool
+	bool readPetIsNear()
 	{
-		auto const reading = digitalRead(pin);
+		int const reading{digitalRead(pin)};
 		delay(50);
 		return reading == LOW;
 	}

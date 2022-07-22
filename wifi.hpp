@@ -2,5 +2,5 @@
 
 namespace wifi
 {
-	auto connect(char ssid[], char const password[]) -> void;
+	void connect(char ssid[], char const password[]);
 }

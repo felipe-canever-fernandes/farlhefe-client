@@ -5,5 +5,5 @@
 namespace petSensor
 {
 	extern uint8_t const pin;
-	auto readPetIsNear() -> bool;
+	bool readPetIsNear();
 }

@@ -11,5 +11,5 @@ namespace foodScale
 	// Maximum food weight in g.
 	extern Weight const maximumWeight;
 
-	auto readWeight() -> Weight;
+	Weight readWeight();
 }

@@ -3,7 +3,7 @@
 #include "petSensor.hpp"
 #include "wifi.hpp"
 
-static auto const ledPin = uint8_t(33);
+static uint8_t const ledPin{33};
 
 void setup()
 {
@@ -19,10 +19,10 @@ void setup()
 
 void loop()
 {
-	static auto petWasNear = false;
-	static auto meal = meal::Meal{};
+	static bool petWasNear{false};
+	static meal::Meal meal{};
 
-	auto const petIsNear = petSensor::readPetIsNear();
+	bool const petIsNear{petSensor::readPetIsNear()};
 
 	if (petIsNear == petWasNear)
 		return;
