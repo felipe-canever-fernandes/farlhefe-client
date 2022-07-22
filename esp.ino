@@ -1,6 +1,7 @@
 #include "petSensor.hpp"
 #include "foodScale.hpp"
 #include "Meal.hpp"
+#include "wifi.hpp"
 
 static auto const ledPin = uint8_t(33);
 
@@ -10,6 +11,10 @@ void setup()
 	pinMode(petSensor::pin, INPUT);
 
 	Serial.begin(115200);
+
+	Serial.println("Connecting to Wi-Fi network...");
+	wifi::connect("", "");
+	Serial.println("Connected to Wi-Fi network.");
 }
 
 void loop()
