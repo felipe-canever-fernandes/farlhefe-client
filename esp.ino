@@ -1,6 +1,6 @@
-#include "petSensor.hpp"
-#include "foodScale.hpp"
 #include "Meal.hpp"
+#include "foodScale.hpp"
+#include "petSensor.hpp"
 #include "wifi.hpp"
 
 static auto const ledPin = uint8_t(33);
