@@ -1,9 +1,16 @@
+#include <PubSubClient.h>
+#include <WiFi.h>
+
 #include "Meal.hpp"
 #include "foodScale.hpp"
+#include "mqtt.hpp"
 #include "petSensor.hpp"
 #include "wifi.hpp"
 
 static uint8_t const ledPin{33};
+
+static WiFiClient wifiClient{};
+static PubSubClient mqttClient{wifiClient};
 
 void setup()
 {
@@ -13,6 +20,7 @@ void setup()
 	Serial.begin(115200);
 
 	wifi::connect("", "");
+	mqtt::connect(mqttClient, "mqtt.eclipseprojects.io", "farlhefe-client");
 }
 
 void loop()
