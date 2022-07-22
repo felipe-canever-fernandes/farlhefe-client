@@ -12,9 +12,7 @@ void setup()
 
 	Serial.begin(115200);
 
-	Serial.println("Connecting to Wi-Fi network...");
 	wifi::connect("", "");
-	Serial.println("Connected to Wi-Fi network.");
 }
 
 void loop()
