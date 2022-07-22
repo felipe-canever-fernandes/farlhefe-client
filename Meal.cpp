@@ -15,4 +15,10 @@ namespace meal
 			durationInSeconds
 		);
 	}
+
+	bool Meal::publish(PubSubClient& mqttClient, String const& topic) const
+	{
+		String payload{String{quantity} + ";" + String{duration}};
+		return mqttClient.publish(topic.c_str(), payload.c_str());
+	}
 }

@@ -46,6 +46,7 @@ void loop()
 		meal.duration = millis() - meal.duration;
 
 		meal.print(Serial);
+		meal.publish(mqttClient, "farlhefe-meal");
 	}
 
 	petWasNear = petIsNear;
