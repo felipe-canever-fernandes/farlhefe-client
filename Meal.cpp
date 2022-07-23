@@ -18,7 +18,7 @@ namespace meal
 
 	bool Meal::publish(PubSubClient& mqttClient, String const& topic) const
 	{
-		String payload{String{quantity} + ";" + String{duration}};
+		String payload{String{duration} + ";" + String{quantity}};
 		return mqttClient.publish(topic.c_str(), payload.c_str());
 	}
 }

@@ -37,13 +37,13 @@ void loop()
 
 	if (petIsNear)
 	{
-		meal.quantity = foodScale::readWeight();
 		meal.duration = millis();
+		meal.quantity = foodScale::readWeight();
 	}
 	else
 	{
-		meal.quantity -= foodScale::readWeight();
 		meal.duration = millis() - meal.duration;
+		meal.quantity -= foodScale::readWeight();
 
 		meal.print(Serial);
 		meal.publish(mqttClient, "farlhefe-meal");

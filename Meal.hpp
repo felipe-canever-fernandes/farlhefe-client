@@ -9,8 +9,8 @@ namespace meal
 {
 	struct Meal
 	{
-		foodScale::Weight quantity;
 		int duration;
+		foodScale::Weight quantity;
 
 		size_t print(HardwareSerial& serial) const;
 		bool publish(PubSubClient& mqttClient, String const& topic) const;
