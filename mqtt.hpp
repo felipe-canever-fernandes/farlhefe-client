@@ -5,10 +5,5 @@
 
 namespace mqtt
 {
-	void connect
-	(
-		PubSubClient& client,
-		String const& broker,
-		String const& clientId
-	);
+	void connect(PubSubClient& client, String const& clientId);
 }

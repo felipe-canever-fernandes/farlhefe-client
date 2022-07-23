@@ -20,11 +20,13 @@ void setup()
 	Serial.begin(115200);
 
 	wifi::connect("", "");
-	mqtt::connect(mqttClient, "mqtt.eclipseprojects.io", "farlhefe-client");
+	mqttClient.setServer("mqtt.eclipseprojects.io", 1883);
 }
 
 void loop()
 {
+	mqtt::connect(mqttClient, "farlhefe-client");
+
 	static bool petWasNear{false};
 	static meal::Meal meal{};
 
